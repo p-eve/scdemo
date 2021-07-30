@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: scdemo-server
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+server:
+  port: 9001
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9000/eureka/

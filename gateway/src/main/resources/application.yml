@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: scdemo-gateway
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: false #是否开启服务注册和发现功能；将为每一个服务创建一个router，这个router把以服务名开头的请求路径转发到对应的服务上
+          lower-case-service-id: true #将请求路径上的服务名转为小写
+      routes:
+        - id: client
+          uri: lb://scdemo-client
+          predicates:
+            - Path=/scdemo-client/**
+          filters:
+            - StripPrefix=1 #路由时会去除/scdemo-client
+
+server:
+  port: 9006
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
