@@ -2,12 +2,12 @@ spring:
   application:
     name: scdemo-server
   cloud:
+    alibaba:
+      seata:
+        tx-service-group: test_tx_group
     loadbalancer:
       ribbon:
         enabled: false
-  alibaba:
-    seata:
-      tx-service-group: test_tx_group
 
   http:
     encoding:
