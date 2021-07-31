@@ -5,10 +5,28 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+
+  datasource:
+    username: root
+    password: "#2Jhdu388"
+    url: jdbc:mysql://192.168.31.36:3306/scdemo?characterEncoding=UTF-8&&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.31.36
+    port: 6379
+
+
 server:
   port: 9001
   servlet:
     context-path: /
+  tomcat:
+    uri-encoding: UTF-8
 eureka:
   instance:
     prefer-ip-address: true
@@ -17,3 +35,9 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:9000/eureka/
+
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

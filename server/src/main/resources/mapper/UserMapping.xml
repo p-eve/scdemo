@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.badman.mapper.UserMapper">
+
+    <select id="getUser" resultType="me.badman.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+    <update id="updateUserById" parameterType="me.badman.entity.User">
+        update user set name = #{name} where id = #{id}
+    </update>
+
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id"  parameterType="me.badman.entity.User">
+        insert into user(name,age) values (#{name},#{age})
+    </insert>
+
+    <delete id="deleteUserById" parameterType="java.lang.Integer">
+        delete from user where id = #{id}
+    </delete>
+
+</mapper>
