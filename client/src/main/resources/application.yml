@@ -5,6 +5,16 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
+  datasource:
+    username: root
+    password: "#2Jhdu388"
+    url: jdbc:mysql://192.168.31.36:3306/scdemo?characterEncoding=UTF-8&&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.31.36
+    port: 6379
+
+
 server:
   port: 9002
   servlet:
