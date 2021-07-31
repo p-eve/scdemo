@@ -9,4 +9,7 @@ public interface IUserFeign {
 
 	@PostMapping("/user/sayHello")
 	String sayHello(@RequestParam("name")String name);
+
+	@PostMapping("/user/addUser")
+	public String  addUser(@RequestParam("name")String name, @RequestParam("age")Integer age);
 }

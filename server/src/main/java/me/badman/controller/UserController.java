@@ -28,12 +28,12 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/addUser")
-	public User addUser(String name, Integer age){
+	public String addUser(String name, Integer age){
 		User user =new User();
 		user.setName(name);
 		user.setAge(age);
 		this.userService.addUser(user);
-		return user;
+		return user.toString();
 	}
 
 }
